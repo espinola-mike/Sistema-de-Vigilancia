@@ -1,0 +1,9 @@
+.barraNav{
+    display: flex;
+    justify-content: end;
+}
+@media (max-width: 768px){
+    .barraNav {
+        justify-content: flex-start;
+    }
+}
