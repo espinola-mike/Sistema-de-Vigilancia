@@ -1,11 +1,19 @@
 # Sistema de Vigilancia
 
-Carrera de Ingeniería de Sistemas UNEFA
+Universidad Nacional Experimental Politécnica de la Fuerza Armada Nacional
 
-9no Semestre
+Ingeniería de Sistemas 9no Semestre
 
-Integrantes:
-Antonio Reyes
-Mike Espinola
-Wilfer Cruz
+# Pasantes: 
 
+Antonio Reyes, Mike Espinola, Wilfer Cruz
+
+Sistema de Vigilancia para el Centro de Investigación y Desarrollo Espacial (CIDE) Ubicado en Puerto Cabello Estado Carabobo
+
+### Lineamientos:
+
+1. Se trata de usar cámaras IP
+
+2. Que trabajen de manera inalámbrico para que la información llegue a un servidor y la información de las cámaras pueda ser vistas tanto de manera local como de manera remota.
+
+3. A través de un sistema bajo arquitectura Cliente-Servidor
