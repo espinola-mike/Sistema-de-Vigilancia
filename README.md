@@ -1,14 +1,14 @@
 # Sistema de Vigilancia
 
+Sistema de Vigilancia para el Centro de Investigación y Desarrollo Espacial (CIDE) Ubicado en Puerto Cabello Estado Carabobo
+
 Universidad Nacional Experimental Politécnica de la Fuerza Armada Nacional
 
 Ingeniería de Sistemas 9no Semestre
 
-# Pasantes: 
+### Pasantes: 
 
 Antonio Reyes, Mike Espinola, Wilfer Cruz
-
-Sistema de Vigilancia para el Centro de Investigación y Desarrollo Espacial (CIDE) Ubicado en Puerto Cabello Estado Carabobo
 
 ### Lineamientos:
 
