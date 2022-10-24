@@ -1,7 +1,19 @@
 """ Aplicación Principal para el Sistema de Vigilancia """
-from flask import Flask, render_template, url_for, redirect # Clases Importadas
+from flask import Flask, render_template, url_for, redirect, Response # Clases Importadas
+from modulos.modA import *
+import cv2
 
 app = Flask(__name__) #Se inicializa una aplicación
+
+#Camaras:
+c1 = cv2.VideoCapture(0)
+c2 = cv2.VideoCapture('http://192.168.1.3:8080/video')
+c3 = cv2.VideoCapture(0)
+c4 = cv2.VideoCapture(0)
+
+#Función para generar el streaming en el navegador
+def generate(camara):
+    return captura(camara)
 
 """ RUTAS de la APP """
 @app.route('/')
@@ -14,6 +26,17 @@ def ondemand():
     """ Función para renderizar la pagina (VideoOnDemand) """
     return render_template('ondemand.html')
 
+#Rutas para las respuestas de las cámaras
+@app.route('/camara1')
+def camara1():
+    #2Do-Parametro; tipo de contenido donde multipart... es usado
+    #para obtener una secuencia en la que cada parte replace a la anterior
+    return Response(generate(c1), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/camara2')
+def camara2():
+    return Response(generate(c2), mimetype='multipart/x-mixed-replace; boundary=frame')
+    
 def pagina_no_encontrada(error):
     """ Función para renderizar la pagina principal por algun error 404 """
     return redirect(url_for('index'))
