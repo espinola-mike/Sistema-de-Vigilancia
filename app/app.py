@@ -7,9 +7,9 @@ app = Flask(__name__) #Se inicializa una aplicación
 
 #Camaras:
 c1 = cv2.VideoCapture(0)
-c2 = cv2.VideoCapture('http://192.168.1.3:8080/video')
-c3 = cv2.VideoCapture(0)
-c4 = cv2.VideoCapture(0)
+c2 = cv2.VideoCapture('http://192.168.1.3:4747/video')
+c3 = cv2.VideoCapture('http://192.168.1.6:4747/video')
+c4 = cv2.VideoCapture(1)
 
 #Función para generar el streaming en el navegador
 def generate(camara):
@@ -36,6 +36,14 @@ def camara1():
 @app.route('/camara2')
 def camara2():
     return Response(generate(c2), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/camara3')
+def camara3():
+    return Response(generate(c3), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+@app.route('/camara4')
+def camara4():
+    return Response(generate(c4), mimetype='multipart/x-mixed-replace; boundary=frame')
     
 def pagina_no_encontrada(error):
     """ Función para renderizar la pagina principal por algun error 404 """
@@ -43,4 +51,4 @@ def pagina_no_encontrada(error):
 
 if __name__ == '__main__': #Si estamos en el archivo main (inicial), se ejecuta la aplicación
     app.register_error_handler(404, pagina_no_encontrada)
-    app.run(debug=True, port=5000)
+    app.run(debug=False, port=5000)
