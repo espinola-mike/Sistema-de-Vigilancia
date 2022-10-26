@@ -8,8 +8,23 @@ app = Flask(__name__) #Se inicializa una aplicación
 #Camaras:
 c1 = cv2.VideoCapture(0)
 c2 = cv2.VideoCapture('http://192.168.1.3:4747/video')
-c3 = cv2.VideoCapture('http://192.168.1.6:4747/video')
-c4 = cv2.VideoCapture(1)
+
+#Configuraciones de las Cámaras
+exp_val = -6
+codec = 0x47504A4D # MJPG
+
+#Camara 1
+""" c1.set(cv2.CAP_PROP_FPS, 30.0)
+c1.set(cv2.CAP_PROP_FOURCC, codec)
+c1.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+c1.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+c1.set(cv2.CAP_PROP_EXPOSURE, exp_val) """
+#Camara 2
+c2.set(cv2.CAP_PROP_FPS, 30.0)
+c2.set(cv2.CAP_PROP_FOURCC, codec)
+c2.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+c2.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
+c2.set(cv2.CAP_PROP_EXPOSURE, exp_val)
 
 #Función para generar el streaming en el navegador
 def generate(camara):
@@ -36,14 +51,6 @@ def camara1():
 @app.route('/camara2')
 def camara2():
     return Response(generate(c2), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/camara3')
-def camara3():
-    return Response(generate(c3), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-@app.route('/camara4')
-def camara4():
-    return Response(generate(c4), mimetype='multipart/x-mixed-replace; boundary=frame')
     
 def pagina_no_encontrada(error):
     """ Función para renderizar la pagina principal por algun error 404 """
