@@ -3,7 +3,8 @@ import cv2
 
 def captura(camara):
     while True:
-        ret, frame = camara.read()
+        camara.grab()
+        ret, frame = camara.retrieve(0)
         if not ret:
             break
         #Comprime la imagen y la almacena en el buffer de memoria
