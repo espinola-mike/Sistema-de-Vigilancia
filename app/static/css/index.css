@@ -7,3 +7,17 @@
         justify-content: flex-start;
     }
 }
+
+.camaras{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+    .cont{
+        margin-bottom: 25px;
+    }
+        .cont img{
+            width: 100%;
+            height: 100%;
+            display: block
+        }
