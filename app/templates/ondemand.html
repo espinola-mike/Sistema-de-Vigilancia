@@ -3,10 +3,46 @@
 {% block title %}Sistema de Vigilancia || VideoOnDemand{% endblock %}
 
 {% block body %}
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-7 col-sm-4 col-md-4 col-lg-2">
             <h2>VideoOnDemand</h2>
+        </div>
+    </div>
+</div> -->
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <!-- col-sm-4 col-md-4 col-lg-2  esto deberia ir en el div de abajo-->
+        <div class="col-10">
+            <h2 class="text-align-center">VideoOnDemand</h2>
+            <div class="row">
+                <div class="col-5 player-list">
+                    <h2>Lista de grabaciones</h2>
+                    {% for key, value in data.items() %}
+                    <a href="ondemand/{{ key }}"><h5>{{ key }}</h5></a>
+                    {% endfor %}
+                </div>
+                <div class="col-7">
+                    <div class="row">
+                        <div class="col">
+                            <video preload controls class="video-player w-100">
+                                {% if video == '#' %}
+                                <source src="{{ video }}" type="video/mp4">
+                                {% else %}
+                                <source src="{{ url_for('static', filename=data[video]) }}" type="video/mp4">
+                                {% endif %}
+                            </video>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col video-test w-25 h-25">video reciente 1</div>
+                        <div class="col video-test w-25 h-25">video reciente 2</div>
+                        <div class="col video-test w-25 h-25">video reciente 3</div>
+                        <div class="col video-test w-25 h-25">video reciente 4</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
