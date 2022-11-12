@@ -11,38 +11,24 @@
     </div>
 </div> -->
 
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <!-- col-sm-4 col-md-4 col-lg-2  esto deberia ir en el div de abajo-->
-        <div class="col-10">
-            <h2 class="text-align-center">VideoOnDemand</h2>
-            <div class="row">
-                <div class="col-5 player-list">
-                    <h2>Lista de grabaciones</h2>
-                    {% for key, value in data.items() %}
-                    <a href="/ondemand/{{ key }}"><h5>{{ key }}</h5></a>
-                    {% endfor %}
+<div class="container">
+    <div class="row bg-light p-2">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <form class="w-50 ms-auto me-auto">
+                <div class="row">
+                    <div class="col-4 d-flex align-items-center flex-column">
+                        <label for="fecha_inicial" class="form-label">Buscar desde:</label>
+                        <input type="date" class="form-control" id="fecha_inicial">
+                      </div>
+                      <div class="col-4 d-flex align-items-center flex-column">
+                        <label for="fecha_final" class="form-label">Buscar hasta:</label>
+                        <input type="date" class="form-control" id="fecha_final">
+                      </div>
+                      <div class="col-4 d-flex align-items-center">
+                        <button class="btn btn-success mt-auto" type="submit">Buscar</button>
+                      </div>
                 </div>
-                <div class="col-7">
-                    <div class="row">
-                        <div class="col">
-                            <video preload controls class="video-player w-100">
-                                {% if video == '#' %}
-                                <source src="{{ video }}" type="video/mp4">
-                                {% else %}
-                                <source src="{{ url_for('static', filename=data[video]) }}" type="video/mp4">
-                                {% endif %}
-                            </video>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col video-test w-25 h-25">video reciente 1</div>
-                        <div class="col video-test w-25 h-25">video reciente 2</div>
-                        <div class="col video-test w-25 h-25">video reciente 3</div>
-                        <div class="col video-test w-25 h-25">video reciente 4</div>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

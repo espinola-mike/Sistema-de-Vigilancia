@@ -52,7 +52,7 @@ def camara1():
 def camara2():
     return Response(generate(c2), mimetype='multipart/x-mixed-replace; boundary=frame')
     
-# Rutas para el video ondemand
+# Rutas para el video ondemand -----------------------------------------------------------
 
 @app.route('/ondemand')
 def ondemand():
