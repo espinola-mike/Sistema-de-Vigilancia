@@ -1,5 +1,5 @@
 #Archivos que no serán subidos al servidor
 /env
-./video
-.mp4
-.OGV
+video
+*.mp4
+*.OGV

@@ -1,0 +1,14 @@
+.video-test{
+    padding: 3em 0;
+    margin-right: 5px;
+    background: #4f4f4f !important;
+    color: #eeeeee;
+    text-align: center;
+}
+
+.video-player{
+    border-radius: .5em;
+    box-shadow: 0 0 .3em #4f4f4f;
+}
+
+
